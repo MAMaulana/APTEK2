@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth overscroll-none">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebGIS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dist/output.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(to bottom, #03001e, #7303c0, #03001e );
+    }
+  </style>
+</head>
+<body class="text-white overscroll-none min-h-screen h-full">
+
+     <!-- NAVBAR -->
+  <nav class="w-full fixed top-0 left-0 z-50 bg-transparent backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="GEOCRIME.png" alt="GEOCRIME Logo" class="h-7" />
+        <span class="font-bold tracking-wide text-lg font-nunito">GEOCRIME</span>
+      </a>
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex gap-10 text-base font-medium">
+        <li><a href="#home" class="hover:text-indigo-400 transition">Home</a></li>
+        <li><a href="#aboutus" class="hover:text-indigo-400 transition">About Us</a></li>
+        <li><a href="#projects" class="hover:text-indigo-400 transition">Projects</a></li>
+      </ul>
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-white" aria-label="Open menu">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="md:hidden px-6 pb-4 pt-0 hidden flex-col gap-3 bg-[#c0a9e1]/80 backdrop-blur-md">
+      <a href="isi.html#home" class="block py-2 hover:text-indigo-400">Home</a>
+      <a href="isi.html#aboutus" class="block py-2 hover:text-indigo-400">About Us</a>
+      <a href="isi.html#projects" class="block py-2 hover:text-indigo-400">Projects</a>
+    </div>
+  </nav>
+
+   <!-- Tombol Next & Back -->
+<div class="w-full flex justify-between items-center px-4 py-20 bg-transparent" style="margin-top: 0.5rem;">
+  <a href="Curas.html"
+     data-aos="fade-right"
+     data-aos-duration="600"
+     data-aos-delay="50"
+    
+     class="px-5 py-2 hover:text-indigo-300 text-white font-semibold shadow transition duration-200">
+    ← Back
+  </a>
+  <a href="Curanmor.html"
+     data-aos="fade-left"
+     data-aos-duration="600"
+     data-aos-delay="50"
+    
+     class="px-5 py-2 hover:text-indigo-300 text-white font-semibold shadow transition duration-200">
+    Next →
+  </a>
+</div>
+
+ <section class="relative min-h-[80vh] flex flex-col md:flex-row items-center justify-between gap-8 px-6 py-20 bg-gradient-to-b from-indigo-950 to-[#2d174a]">
+    <!-- Ilustrasi/Gambar -->
+    <img src="screenshot-map.png" alt="Project WebGIS" class="rounded-xl shadow-xl w-full md:w-1/2 max-w-lg border-2 border-indigo-400/40" />
+    <!-- Deskripsi -->
+    <div class="w-full md:w-1/2 flex flex-col items-start z-10">
+        <span class="bg-pink-600/30 px-3 py-1 rounded-full text-pink-200 text-xs font-semibold mb-4" data-aos="fade-left" data-aos-duration="700" data-aos-delay="60">Project</span>
+        <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight drop-shadow" data-aos="fade-left" data-aos-duration="800" data-aos-delay="70">Curat</h2>
+        <p class="text-lg text-indigo-100 mb-6" data-aos="fade-left" data-aos-duration="900" data-aos-delay="75">
+        Dashboard interaktif berbasis GIS untuk pemetaan dan analisis kasus kejahatan di wilayah perkotaan.  
+        Pantau persebaran, lakukan filter kasus, dan dapatkan insight mendalam untuk perencanaan kota yang lebih aman.
+        </p>   
+    </div>
+    </section>
+
+  <!-- Transition Overlay -->
+  <div id="transition-overlay" class="pointer-events-none opacity-0 transition-opacity duration-500 fixed inset-0 z-[9999] bg-[#03001e]/90"></div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="src/script.js"></script>
+  <script>
+    // Mobile menu logic
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    // Tutup menu mobile saat klik link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
